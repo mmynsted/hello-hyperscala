@@ -1,0 +1,15 @@
+.settings
+/\.project
+/\.classpath
+/.settings/org.scala-ide.sdt.core.prefs
+/.idea/
+/.idea_modules
+/.DS_Store
+target/
+/\.target/
+/\.cache
+*~
+*.swp
+*.swo
+*.log
+*.iml
