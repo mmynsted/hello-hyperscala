@@ -6,5 +6,6 @@ import com.outr.net.http.session.MapSession
 
 object HelloSite extends BasicWebsite with StaticWebsite[MapSession] with JettyApplication {
   def index = new HelloPage
+  def dynamicContentExample = new DynamicContentExample
 }
 
