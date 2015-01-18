@@ -1,11 +1,9 @@
 package com.growingliberty.hello
 
 import org.hyperscala.html.tag
-import org.hyperscala.web.{Website,Webpage}
-import org.powerscala.Version
 import org.hyperscala.module._
-
-
+import org.hyperscala.web.{Webpage, Website}
+import org.powerscala.Version
 
 object jQuery182 extends Module {
 
@@ -14,9 +12,6 @@ object jQuery182 extends Module {
   def name = "jQuery182"
   def version = Version(1,8,2)
 
-  //override val dependencies = List(org.hyperscala.jquery.jQuery)
-  //override def implements = List(org.hyperscala.jquery.jQuery)
-
   override def init[S <: Session](website: Website[S]) = {
     website.register("/js/jquery-1.8.2.js", "jquery-1.8.2.min.js")
   }
@@ -24,6 +19,5 @@ object jQuery182 extends Module {
   override def load[S <: Session](webpage: Webpage[S]) = {
     webpage.head.contents += new tag.Script(mimeType = "text/javascript", src = "/js/jquery-1.8.2.js")
   }
-
 }
 

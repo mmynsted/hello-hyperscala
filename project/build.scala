@@ -1,5 +1,5 @@
+import sbt.Keys._
 import sbt._
-import Keys._
 
 object HelloHyperscalaBuild extends Build {
 import Dependencies._

@@ -1,27 +1,21 @@
 package com.growingliberty.hello
 
 import org.hyperscala.html._
-import org.hyperscala.web.Webpage
-import org.powerscala.property.Property
-
+import org.hyperscala.realtime.RealtimeEvent
 import org.hyperscala.ui.binder._
 import org.hyperscala.ui.dynamic.{DynamicContent, DynamicString}
-import org.hyperscala.realtime.RealtimeEvent
+import org.hyperscala.web.Webpage
+import org.powerscala.property.Property
 
 class DynamicContentExample extends Webpage(HelloSite) {
   title := "Dynamic Content Example"
   body.contents += new tag.P { contents +=
     "Content can be extracted and manipulated before hyperscala delivers a response.  "
   }
-  body.contents += new SimpleDynamicForm
+  body.contents += new DynamicContent("DynamicContentExample") {
 
-  class SimpleDynamicForm extends DynamicContent("DynamicContentExample") {
-
-    /* Load dynamic.html to dynamicString
-     * Implementing the dynamicString method from DynamicContent trait
-     * with a lazy val because we need not load this more than once.
-     */
-    lazy val dynamicString = DynamicString.url("dynamic.html", getClass.getClassLoader.getResource("dynamic.html"))
+    // Load dynamic.html to dynamicString
+    val dynamicString = DynamicString.url("dynamic.html", getClass.getClassLoader.getResource("dynamic.html"))
 
     //Person
     case class Person(name: String, age: Int)
